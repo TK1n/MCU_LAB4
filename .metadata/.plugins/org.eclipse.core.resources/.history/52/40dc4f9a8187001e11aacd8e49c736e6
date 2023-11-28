@@ -1,0 +1,14 @@
+/*
+ * buffer.c
+ *
+ *  Created on: Nov 20, 2023
+ *      Author: Huy Minh
+ */
+
+
+#include "buffer.h"
+
+
+temp = 0;
+index_buffer = 0;
+buffer_flag = 0;

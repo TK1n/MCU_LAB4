@@ -1,0 +1,44 @@
+/*
+ * uart_communiation_fsm.c
+ *
+ *  Created on: Nov 20, 2023
+ *      Author: Huy Minh
+ */
+
+#include "uart_communiation_fsm.h"
+
+void uart_communiation_fsm(){
+	char str[50];
+	switch(uart_state){
+		case RECEIVE_COMMAND:
+			ADC_Value= HAL_ADC_GetValue(&hadc1);
+			if (command_flag==1) {
+				uint8_t temp[MAX_BUFFER_SIZE]="!RST#";
+				if (compare_string(command_data, temp)==1) {
+					uart_state = SEND_ADC;
+					setTimer1(1);
+				}
+				command_flag=0;
+			}
+
+			break;
+		case SEND_ADC:
+			if (command_flag==1) {
+				uint8_t temp[MAX_BUFFER_SIZE]="!OK#";
+				if (compare_string(command_data, temp)==1) {
+					setTimer1(0);
+					communication_status=RECEIVE_COMMAND;
+				}
+				command_flag=0;
+			}
+			if (timer1_flag==1) {
+
+				HAL_UART_Transmit (&huart2 , (void*)str , sprintf (str , "\n%ld\n", ADC_Value), 1000);
+				setTimer1(300);
+			}
+
+			break;
+		default:
+			break;
+	}
+}

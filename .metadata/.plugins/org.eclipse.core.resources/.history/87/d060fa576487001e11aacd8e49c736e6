@@ -1,0 +1,16 @@
+/*
+ * global.h
+ *
+ *  Created on: Nov 20, 2023
+ *      Author: Huy Minh
+ */
+
+#ifndef INC_GLOBAL_H_
+#define INC_GLOBAL_H_
+
+#include "main.h"
+
+extern uint8_t str;
+
+
+#endif /* INC_GLOBAL_H_ */

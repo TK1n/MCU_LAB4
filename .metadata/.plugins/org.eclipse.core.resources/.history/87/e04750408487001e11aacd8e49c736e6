@@ -1,0 +1,31 @@
+/*
+ * global.h
+ *
+ *  Created on: Nov 20, 2023
+ *      Author: Huy Minh
+ */
+
+#ifndef INC_GLOBAL_H_
+#define INC_GLOBAL_H_
+
+#include "main.h"
+#include "software_timer.h"
+#include "uart_communiation_fsm.h"
+#include "command_parser_fsm.h"
+//#include "buffer.h"
+
+#define MAX_BUFFER_SIZE  30
+
+#define
+
+
+uint8_t temp;
+uint8_t buffer[MAX_BUFFER_SIZE];
+uint8_t index_buffer;
+uint8_t buffer_flag;
+
+extern int commend_flag;
+uint32_t commend_data;
+
+
+#endif /* INC_GLOBAL_H_ */

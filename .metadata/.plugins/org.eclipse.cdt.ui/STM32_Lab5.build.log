@@ -1,0 +1,10 @@
+18:38:00 **** Incremental Build of configuration Debug for project STM32_Lab5 ****
+make -j8 all 
+arm-none-eabi-size   STM32_Lab5.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15932	    124	   1932	  17988	   4644	STM32_Lab5.elf
+Finished building: default.size.stdout
+ 
+
+18:38:00 Build Finished. 0 errors, 0 warnings. (took 218ms)
+

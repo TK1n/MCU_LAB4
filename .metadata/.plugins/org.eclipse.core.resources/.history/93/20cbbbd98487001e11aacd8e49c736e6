@@ -1,0 +1,37 @@
+/*
+ * command_parser_fsm.c
+ *
+ *  Created on: Nov 20, 2023
+ *      Author: Huy Minh
+ */
+
+
+#include "command_parser_fsm.h"
+
+void command_parser_fsm(){
+	switch(state){
+	case Start:
+		if (buffer[index_buffer-1]=='!') {
+			state = Read_command;
+		}
+		else {
+			index_buffer=0;
+		}
+		break;
+	case Read_command:
+		if (index_buffer>MAX_BUFFER_SIZE -1) {
+			state=Start;
+			index_buffer=0;
+		}
+		if (buffer[index_buffer-1]=='#') {
+			command_data  = buffer;
+			command_flag=1;
+			status=START;
+			index_buffer=0;
+		}
+		break;
+	default:
+		break;
+
+	}
+}

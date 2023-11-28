@@ -1,0 +1,13 @@
+/*
+ * buffer.c
+ *
+ *  Created on: Nov 20, 2023
+ *      Author: Huy Minh
+ */
+
+
+#include "buffer.h"
+
+uint8_t temp = 0;
+extern uint8_t index_buffer = 0;
+extern uint8_t buffer_flag = 0;
